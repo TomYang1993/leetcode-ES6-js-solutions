@@ -2,7 +2,6 @@
 
 
 var moveZeroes = function(nums) {
-
     if(!nums || !nums instanceof Array) return nums
     for(var i = nums.length-1;i>=0;i--){
         if(nums[i] == 0){
