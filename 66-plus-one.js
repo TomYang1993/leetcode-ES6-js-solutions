@@ -27,9 +27,3 @@ var plusOne = function(digits) {
     
     return digits;
 };
-
-class Car {
-
-    tireSize: string = "aluminum max"
-    
-}
