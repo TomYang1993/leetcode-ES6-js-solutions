@@ -79,26 +79,3 @@ var addTwoNumbers = function(l1, l2) {
     return sentinel.next
     
 };
-
-
-var addTwoNumbers = function(l1, l2) {
-
-    let carry = 0;
-    let sentinel = new ListNode(0);
-    let first = sentinel;
-    
-    while(l1 !== null || l2 !== null || carry === 1) {
-        let x = (l1==null?0:l1.val)
-        let y = (l2==null?0:l2.val) 
-        
-        let digit = ( x + y + carry) % 10
-        first.next = new ListNode(digit)
-        first = first.next;
-        carry = Math.floor((x + y + carry) / 10);
-        l1 = (l1 == null)? null : l1.next;
-        l2 = (l2 == null)? null : l2.next;
-    }
-    
-    return sentinel.next
-    
-};
