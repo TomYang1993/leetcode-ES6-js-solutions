@@ -179,39 +179,3 @@ if (window.FileReader) {
       obj.attachEvent('on' + evt, handler);
     } 
   }
-
-
-  <!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Image Preview</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-</head>
-<body>
-
-  <h1 style="margin-left: 20px;">Image Gallery</h1>
-    <div id="drop">Drop files here.</div>
-
-     <div id="image"></div>
-</body>
-
-</html>
-
-
-/* Add your css styles here */
-#drop {
-  height: 100px;
-  width: 250px;
-  border: 2px dotted blue;
-  margin: 10px;
-  padding: 10px;
-  text-align: center;
-}
-
-img {
-    width: 1024px;
-    height: 768px;
-}

@@ -54,3 +54,5 @@ function getKMPPattern(needle) {
   }
   return result;
 }
+
+console.log(getKMPPattern("pwkeww"))
