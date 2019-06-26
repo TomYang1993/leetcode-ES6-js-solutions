@@ -1,3 +1,11 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
 var addTwoNumbers = function(l1, l2) {
 
     let carry = 0;
@@ -18,37 +26,6 @@ var addTwoNumbers = function(l1, l2) {
     
     return sentinel.next
     
-};
-
-
-var addTwoNumbers = function(l1, l2) {
-    let arr1 = []
-    let arr2 = []
-    while(l1 !== null){
-        arr1.push(l1.val)
-        l1 = l1.next;
-    }
-     while(l2 !== null){
-        arr2.push(l2.val)
-        l2 = l2.next;
-    }
-    let result = []
-    let carry = 0;
-    for(let i = 0, j = 0  ; i < arr1.length || j < arr2.length || carry === 1 ; i++, j++) {
-        arr1[i] = arr1[i] || 0;
-        arr2[j] = arr2[j] || 0;
-        result.push((arr1[i] + arr2[j] + carry) % 10);
-        carry = Math.floor((arr1[i] + arr2[j] + carry) / 10);
-    }
-    var sentinel = new ListNode(0);
-    var first = sentinel;
-
-    
-    for(let i = 0; i < result.length; i++) {
-        first.next = new ListNode(result[i])
-        first = first.next;
-    }
-    return sentinel.next
 };
 
 
