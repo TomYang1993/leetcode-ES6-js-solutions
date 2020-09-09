@@ -6,8 +6,36 @@ function removeDuplicatesBySet(arr) {
 }
 
 function removeDuplicatesByIndexOf(arr) {
+    let resultArray = arr.filter((item, index) => {
+        return arr.indexOf(item) === index
+    })
+    return resultArray;
+}
 
-    return Array.from(new Set(arr));
+function removeDuplicatesByIndexOfOptimized(arr) {
+    let resultArray = [];
+    for(item of arr) {
+        if(resultArray.indexOf(item) === -1){
+            resultArray.push(item)
+        }
+    }
+    return resultArray;
+}
+
+
+function distinct(a, b) {
+    let arr = a.concat(b)
+    let result = []
+    let obj = {}
+
+    for (let i of arr) {
+        if (!obj[i]) {
+            result.push(i)
+            obj[i] = 1
+        }
+    }
+
+    return result
 }
 
 function removeDuplicatesByMap(arr) {
@@ -16,13 +44,13 @@ function removeDuplicatesByMap(arr) {
         return
     }
     let res = [],
-        obj = {}
+        map = new Map();
     for (let i = 0; i < arr.length; i++) {
-        if (!obj[arr[i]]) {
+        if (!map.get(arr[i])) {
             res.push(arr[i])
-            obj[arr[i]] = 1
+            map.set(arr[i],1)
         } else {
-            obj[arr[i]]++
+            map.set(arr[i],map.get(arr[i]) + 1)  // no need if only want to get the result array
         }
     }
     return res
@@ -31,4 +59,4 @@ function removeDuplicatesByMap(arr) {
 let testArrayExtreme = [1,'',1,4,5,'6',6, true, null, 78, undefined, {}, [], 0];
 let testArrayNormal = [1,'',1,4,5,'6',6,'a', 78, undefined, 'a', 'fast'];
 
-console.log(removeDuplicates(testArrayNormal))
+console.log(removeDuplicatesByMap(testArrayNormal))
