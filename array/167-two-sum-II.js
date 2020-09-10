@@ -1,19 +1,20 @@
 
 // two pointer push towards the middle, because it is sorted
-var twoSum = function(numbers, target) {
+let twoSumFindMultiple = function(numbers, target) {
     let left = 0;
     let right = numbers.length - 1;
-    
+    let result = [];
     while(left < right) {
         if(numbers[left] + numbers[right] === target) {
-            return [left + 1, right + 1]
+            result.push([left + 1, right + 1]); 
+            left++
         }else if(numbers[left] + numbers[right] < target) {
             left++
         }else{
             right--
         }
     }
-    return []
+    return result
 };
 
 
@@ -34,3 +35,5 @@ var twoSum = function(numbers, target) {
     }
     return []
 };
+
+console.log(twoSumFindMultiple([0,1,1,2,4,5,6,7],7))
