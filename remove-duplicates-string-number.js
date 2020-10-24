@@ -1,8 +1,32 @@
+function removeDuplicatesByDoubleLoop(arr) {
+    let resultArray = [];
+    let isRepeat;
+    for(let i = 0; i < arr.length; i++){
+        isRepeat = false;
+        // mimick a includes function
+        for(let j = 0; j < resultArray.length; j++){
+            if(arr[i] === resultArray[j]){
+                isRepeat = true;
+                break;
+            }
+        }
+        if(!isRepeat){
+            resultArray.push(arr[i]);
+        }
+    }
+    return resultArray;
+}
 
-
-function removeDuplicatesBySet(arr) {
-
-    return Array.from(new Set(arr));
+/* only use when there are only number/string elements */
+function removeDuplicatesBySort(arr) {
+    let tempArray = arr.sort();
+    const resultArray = [];
+    for(let i = 0; i < tempArray.length; i++){
+        if(tempArray[i] !== resultArray[resultArray.length - 1]){
+            resultArray.push(tempArray[i])
+        }
+    }
+    return resultArray;
 }
 
 function removeDuplicatesByIndexOf(arr) {
@@ -40,7 +64,12 @@ function removeDuplicatesByMap(arr) {
     return res
 }
 
-let testArrayExtreme = [1,'',1,4,5,'6',6, true, null, 78, undefined, {}, [], 0];
-let testArrayNormal = [1,'',1,4,5,'6',6,'a', 78, undefined, 'a', 'fast'];
+function removeDuplicatesBySet(arr) {
+    return Array.from(new Set(arr));
+}
 
-console.log(removeDuplicatesByMap(testArrayNormal))
+let testArrayExtreme = [1,'',1,4,5,'6',6, true, null, 78, undefined, {}, [], 0];
+let testArrayNormal = [1,'',1,4,4,4,4,5,'6',6,'a', 78, undefined, 'a', 'fast'];
+let testArrayNumStr = [1,'',1,4,5,'6',6, 6,0];
+
+console.log(removeDuplicatesByDoubleLoop(testArrayNumStr))
